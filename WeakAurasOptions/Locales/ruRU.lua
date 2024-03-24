@@ -5,11 +5,9 @@ if (GAME_LOCALE or GetLocale()) ~= "ruRU" then
 end
 
 local L = WeakAuras.L
-
-function WeakAuras.LoadLocaleOptions_ruRU()
-  --@localization(locale="ruRU", format="lua_additive_table", handle-unlocalized="english", table-name="L")@
-
---@localization(locale="ruRU", format="lua_additive_table", namespace="WeakAuras / Options")@
+if WeakAurasSaved.disableRuLocale then -- assume that WeakAurasSaved is loaded by the time
+  return
+end
 -- WeakAuras/Options
 L[" and |cFFFF0000mirrored|r"] = "; Отражение"
 L["-- Do not remove this comment, it is part of this aura: "] = "-- Не удаляйте этот комментарий! Он является частью кода индикации "
@@ -1060,4 +1058,5 @@ L["Zoom"] = "Масштаб"
 L["Zoom In"] = "Увеличение"
 L["Zoom Out"] = "Уменьшение"
 
-end
+
+
