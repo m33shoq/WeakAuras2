@@ -1364,9 +1364,9 @@ loadedFrame:SetScript("OnEvent", function(self, event, ...)
       db.migrationCutoff = db.migrationCutoff or 730
       db.historyCutoff = db.historyCutoff or 730
 
-      if not db.disableRuLocale and WeakAuras.LoadLocale_ruRU then
-        WeakAuras.LoadLocale_ruRU()
-      end
+      -- if not db.disableRuLocale and WeakAuras.LoadLocale_ruRU then
+      --   WeakAuras.LoadLocale_ruRU()
+      -- end
 
       Private.SyncParentChildRelationships();
       local isFirstUIDValidation = db.dbVersion == nil or db.dbVersion < 26;
