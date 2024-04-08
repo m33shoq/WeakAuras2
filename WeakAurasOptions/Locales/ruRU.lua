@@ -5,9 +5,9 @@ if (GAME_LOCALE or GetLocale()) ~= "ruRU" then
 end
 
 local L = WeakAuras.L
-if WeakAurasSaved.disableRuLocale then -- assume that WeakAurasSaved is loaded by the time
-  return
-end
+-- if WeakAurasSaved.disableRuLocale then -- assume that WeakAurasSaved is loaded by the time
+--   return
+-- end
 -- WeakAuras/Options
 L[" and |cFFFF0000mirrored|r"] = "; Отражение"
 L["-- Do not remove this comment, it is part of this aura: "] = "-- Не удаляйте этот комментарий! Он является частью кода индикации "
