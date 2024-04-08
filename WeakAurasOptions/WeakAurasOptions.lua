@@ -725,6 +725,7 @@ local function LayoutDisplayButtons(msg)
     if (WeakAuras.IsOptionsOpen()) then
       for id, button in pairs(displayButtons) do
         if OptionsPrivate.Private.loaded[id] then
+          coroutine.yield();
           button:PriorityShow(1);
         end
       end
