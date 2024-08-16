@@ -5,7 +5,7 @@ end
 local L = WeakAuras.L
 
 -- WeakAuras
-L[ [=[ Filter formats: 'Name', 'Name-Realm', '-Realm'. 
+L[ [=[ Filter formats: 'Name', 'Name-Realm', '-Realm'.
 
 Supports multiple entries, separated by commas
 Can use \ to escape -.]=] ] = [=[필터 형식: '이름', '이름-서버', '-서버'. 여러 항목을 지원하며, 각 항목은 쉼표로 구분합니다.
@@ -1273,8 +1273,8 @@ L[ [=[Supports multiple entries, separated by commas
 L["Supports multiple entries, separated by commas. Escape ',' with \\. Prefix with '-' for negation."] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 쉼표는 '\\'로 이스케이프 처리합니다. 부정은 '-'로 시작합니다."
 L["Supports multiple entries, separated by commas. Prefix with '-' for negation."] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 부정은 '-'로 시작합니다."
 L[ [=[Supports multiple entries, separated by commas. To include child zone ids, prefix with 'c', e.g. 'c2022'.
-Group Zone IDs must be prefixed with 'g', e.g. 'g277'. 
-Supports Area IDs from https://wago.tools/db2/AreaTable prefixed with 'a'. 
+Group Zone IDs must be prefixed with 'g', e.g. 'g277'.
+Supports Area IDs from https://wago.tools/db2/AreaTable prefixed with 'a'.
 Supports Instance IDs prefixed with 'i'.
 Entries can be prefixed with '-' to negate.]=] ] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 하위 지역 ID를 포함하려면 'c'를 접두사로 사용하세요, 예: 'c2022'. 그룹 지역 ID는 'g'를 접두사로 사용해야 합니다, 예: 'g277'. https://wago.tools/db2/AreaTable에서 제공하는 지역 ID는 'a'를 접두사로 사용해야 합니다. 인스턴스 ID는 'i'를 접두사로 사용하세요. 항목은 '-'를 접두사로 하여 부정할 수 있습니다."
 L["Swing"] = "근접 평타"
