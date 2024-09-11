@@ -9,7 +9,7 @@ L[ [=[ Filter formats: 'Name', 'Name-Realm', '-Realm'.
 
 Supports multiple entries, separated by commas
 Can use \ to escape -.]=] ] = [=[필터 형식: '이름', '이름-서버', '-서버'. 여러 항목을 지원하며, 각 항목은 쉼표로 구분합니다.
-\를 사용하면 이스케이프 -를 할 수 있습니다.]=]
+-는 앞에 \를 사용해서 이스케이프 처리를 할 수 있습니다.]=]
 L["%s Overlay Color"] = "%s 오버레이 색상"
 L["* Suffix"] = "* 접미사"
 L["/wa help - Show this message"] = "/wa help - 이 메시지 보이기"
@@ -648,9 +648,9 @@ L["Importing will start after combat ends."] = "전투 종료 후 가져오기�
 L["In Combat"] = "전투중"
 L["In Encounter"] = "보스 전투중"
 L["In Group"] = "그룹 상태"
-L["In Party"] = "파티 상태"
+L["In Party"] = "파티"
 L["In Pet Battle"] = "애완동물 대전중"
-L["In Raid"] = "공격대 상태"
+L["In Raid"] = "공격대"
 L["In Range"] = "거리 이내"
 L["In Vehicle"] = "차량 탑승중"
 L["In War Mode"] = "전쟁 모드"
@@ -1105,8 +1105,7 @@ L["Right, then Centered Vertical"] = "오른쪽, 수직 중앙"
 L["Right, then Down"] = "오른쪽으로, 아래로"
 L["Right, then Up"] = "오른쪽으로, 위로"
 L["Role"] = "역할"
---[[Translation missing --]]
-L["Rollback snapshot is complete. Thank you for your patience!"] = "Rollback snapshot is complete. Thank you for your patience!"
+L["Rollback snapshot is complete. Thank you for your patience!"] = "롤백 스냅샷이 완료되었습니다. 기다려 주셔서 감사합니다!"
 L["Rotate Animation"] = "애니메이션 회전"
 L["Rotate Left"] = "왼쪽으로 회전"
 L["Rotate Right"] = "오른쪽으로 회전"
@@ -1270,13 +1269,13 @@ L["Sun"] = "태양"
 L["Supports multiple entries, separated by commas"] = "여러 항목을 지원하며 쉼표로 구분됨"
 L[ [=[Supports multiple entries, separated by commas
 ]=] ] = "여러 항목을 지원하며 쉼표로 구분됨"
-L["Supports multiple entries, separated by commas. Escape ',' with \\. Prefix with '-' for negation."] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 쉼표는 '\\'로 이스케이프 처리합니다. 부정은 '-'로 시작합니다."
-L["Supports multiple entries, separated by commas. Prefix with '-' for negation."] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 부정은 '-'로 시작합니다."
+L["Supports multiple entries, separated by commas. Escape ',' with \\. Prefix with '-' for negation."] = "여러 항목을 지원하며 쉼표로 구분됩니다. 쉼표를 문자로 표시하려면 '\\'를 붙여 이스케이프 처리합니다. 앞에 '-'를 붙이면 조건을 반대로 적용합니다."
+L["Supports multiple entries, separated by commas. Prefix with '-' for negation."] = "여러 항목을 지원하며 쉼표로 구분됩니다. 조건을 반대로 하려면 앞에 '-'를 붙이세요."
 L[ [=[Supports multiple entries, separated by commas. To include child zone ids, prefix with 'c', e.g. 'c2022'.
 Group Zone IDs must be prefixed with 'g', e.g. 'g277'. 
 Supports Area IDs from https://wago.tools/db2/AreaTable prefixed with 'a'. 
 Supports Instance IDs prefixed with 'i'.
-Entries can be prefixed with '-' to negate.]=] ] = "여러 항목을 지원하며, 쉼표로 구분됩니다. 하위 지역 ID를 포함하려면 'c'를 접두사로 사용하세요, 예: 'c2022'. 그룹 지역 ID는 'g'를 접두사로 사용해야 합니다, 예: 'g277'. https://wago.tools/db2/AreaTable에서 제공하는 지역 ID는 'a'를 접두사로 사용해야 합니다. 인스턴스 ID는 'i'를 접두사로 사용하세요. 항목은 '-'를 접두사로 하여 부정할 수 있습니다."
+Entries can be prefixed with '-' to negate.]=] ] = "여러 항목을 지원하며 쉼표로 구분됩니다. 하위 지역 ID(Child Zone ID) 를 포함하려면 'c2022'처럼 'c'를 접두사로 사용하세요. 그룹 지역 ID(Group Zone ID)는 'g277'처럼 'g'를 접두사로 사용해야 합니다. 지역 ID(Area ID)는 https://wago.tools/db2/AreaTable에서 확인할 수 있으며 'a'를 접두사로 사용합니다. 인스턴스 ID는 'i'를 접두사로 사용하세요. 이들 항목은  '-'를 접두사로 사용하면 반대로 해당 지역에 없을 때를 조건으로 합니다."
 L["Swing"] = "근접 평타"
 L["Swing Timer"] = "근접 평타 타이머"
 L["Swipe"] = "회전"
@@ -1456,8 +1455,7 @@ Last upgrade: %s
 마지막 업그레이드: %s
 
 |cffff0000이 버튼을 누르기 전에 WTF 폴더를 백업해 놓으세요.|r]=]
---[[Translation missing --]]
-L["WeakAuras is creating a rollback snapshot of your auras. This snapshot will allow you to revert to the current state of your auras if something goes wrong. This process may cause your framerate to drop until it is complete."] = "WeakAuras is creating a rollback snapshot of your auras. This snapshot will allow you to revert to the current state of your auras if something goes wrong. This process may cause your framerate to drop until it is complete."
+L["WeakAuras is creating a rollback snapshot of your auras. This snapshot will allow you to revert to the current state of your auras if something goes wrong. This process may cause your framerate to drop until it is complete."] = "WeakAuras가 오라의 롤백 스냅샷을 생성하고 있습니다. 문제가 발생하면 이 스냅샷을 통해 오라의 현재 상태로 되돌릴 수 있습니다. 이 과정에서 프레임율이 일시적으로 떨어질 수 있습니다."
 L["WeakAuras Profiling"] = "WeakAuras 성능 분석"
 L["WeakAuras Profiling Report"] = "WeakAuras 성능 분석 보고서"
 L["WeakAuras Version: %s"] = "WeakAuras 버전: %s"
