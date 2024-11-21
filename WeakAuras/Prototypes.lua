@@ -8019,6 +8019,21 @@ Private.event_prototypes = {
         noProgressSource = true
       },
       {
+        name = "spellName",
+        display = L["Spell Name"],
+        type = "spell",
+        init = "arg",
+        store = true,
+        multiEntry = {
+          operator = "preamble",
+          preambleAdd = "spellChecker:AddName(%q)"
+        },
+        preamble = "local spellChecker = Private.ExecEnv.CreateSpellChecker()",
+        test = "spellChecker:Check(spellId)",
+        conditionType = "string",
+        noProgressSource = true
+      },
+      {
         name = "icon",
         hidden = true,
         init = "Private.ExecEnv.GetSpellIcon(spellId or 0)",
