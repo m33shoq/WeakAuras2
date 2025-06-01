@@ -121,15 +121,7 @@ function OptionsPrivate.CreateFrame()
   frame:SetResizeBounds(minWidth, minHeight)
   frame:SetFrameStrata("DIALOG")
   -- Workaround classic issue
-
-  local serverTime = C_DateAndTime.GetServerTimeLocal()
-  if serverTime >= 1748736000 -- June 1.
-     and serverTime <= 1751328000 -- July 1.
-  then
-    WeakAurasOptionsPortrait:SetTexture([[Interface\AddOns\WeakAuras\Media\Textures\logo_256_round_pride.tga]])
-  else
-    WeakAurasOptionsPortrait:SetTexture([[Interface\AddOns\WeakAuras\Media\Textures\logo_256_round.tga]])
-  end
+  WeakAurasOptionsPortrait:SetTexture([[Interface\AddOns\WeakAuras\Media\Textures\logo_256_round.tga]])
 
   frame.window = "default"
 
