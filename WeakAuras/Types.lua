@@ -3871,6 +3871,7 @@ Private.update_categories = {
       "exrtUpdateConfig",
       "exrtDefaultLoadNever",
       "rg_custom_error_handler",
+      "exrtToSend",
     },
     default = false,
     label = "WASync settings",
