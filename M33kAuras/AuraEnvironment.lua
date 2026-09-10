@@ -164,7 +164,7 @@ local LCG = LibStub("LibCustomGlow-1.0-m33kauras")
 M33kAuras.ShowOverlayGlow = LCG.ButtonGlow_Start
 M33kAuras.HideOverlayGlow = LCG.ButtonGlow_Stop
 
-local LGF = LibStub("LibGetFrame-1.0")
+local LGF = LibStub("LibGetFrame-1.0-m33kauras")
 M33kAuras.GetUnitFrame = LGF.GetUnitFrame
 M33kAuras.GetUnitNameplate =  function(unit)
   if Private.multiUnitUnits.nameplate[unit] then

@@ -64,7 +64,7 @@ function M.install()
     LibSerialize = {},
     LibDeflate = {},
     ["LibCustomGlow-1.0-m33kauras"] = { ButtonGlow_Start = function() end, ButtonGlow_Stop = function() end },
-    ["LibGetFrame-1.0"] = { GetUnitFrame = function() end, GetUnitNameplate = function() end },
+    ["LibGetFrame-1.0-m33kauras"] = { GetUnitFrame = function() end, GetUnitNameplate = function() end },
   }
   _G.LibStub = setmetatable({ GetLibrary = function(_, name) return libs[name] end }, {
     __call = function(_, name) return libs[name] end,
