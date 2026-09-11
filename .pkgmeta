@@ -14,6 +14,7 @@ externals:
   M33kAuras/Libs/LibSpellRange-1.0: https://github.com/ascott18/LibSpellRange-1.0
   M33kAuras/Libs/LibRangeCheck-3.0: https://github.com/WeakAuras/LibRangeCheck-3.0/
   M33kAuras/Libs/LibDBIcon-1.0: https://repos.curseforge.com/wow/libdbicon-1-0/trunk/LibDBIcon-1.0
+  M33kAuras/Libs/LibGetFrame-1.0: https://github.com/mrbuds/LibGetFrame
   M33kAuras/Libs/Archivist:
     url: https://github.com/emptyrivers/Archivist
     tag: v1.0.8

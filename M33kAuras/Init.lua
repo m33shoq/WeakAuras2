@@ -557,7 +557,7 @@ do
     "SpellRange-1.0",
     "LibCustomGlow-1.0-m33kauras",
     "LibDBIcon-1.0",
-    "LibGetFrame-1.0-m33kauras",
+    "LibGetFrame-1.0",
     "LibSerialize",
   }
   if M33kAuras.IsRetail() then

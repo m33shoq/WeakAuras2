@@ -10,7 +10,7 @@ local Private = select(2, ...)
 local M33kAuras = M33kAuras
 local L = M33kAuras.L
 local prettyPrint = M33kAuras.prettyPrint
-local LGF = LibStub("LibGetFrame-1.0-m33kauras")
+local LGF = LibStub("LibGetFrame-1.0")
 
 local profileData = {}
 profileData.systems = {}
