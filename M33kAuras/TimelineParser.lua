@@ -166,6 +166,10 @@ Private.ExecEnv.TimelineParser = {
         end
         Private.ScanEvents(event, eventID, spellID)
       end
+    elseif event == "TimelineParser_EventFinished" then
+      -- The preceding cancellation may already have removed the cached timer.
+      local eventID, spellID, count = ...
+      Private.ScanEvents(event, eventID, spellID, count)
     elseif event == "TimelineParser_EncounterEnded" then
       for eventID, bar in pairs(self.bars) do
         self.bars[eventID] = nil
@@ -203,6 +207,10 @@ Private.ExecEnv.TimelineParser = {
 
   RegisterStage = function(self)
     self:RegisterCallback("TimelineParser_StageChanged")
+  end,
+
+  RegisterTimerFinished = function(self)
+    self:RegisterCallback("TimelineParser_EventFinished")
   end,
 
   scheduled_scans = {},
@@ -252,6 +260,42 @@ Private.ExecEnv.TimelineParser = {
     progressType = "none"
   }
   Private.category_event_prototype.addons["TimelineParser Stage"] = L["TimelineParser Stage"]
+
+Private.event_prototypes["TimelineParser Stage (Event)"] = {
+  type = "event",
+  events = {
+    events = {
+      "TimelineParser_StageChanged"
+    }
+  },
+  name = M33kAuras.newFeatureString .. L["TimelineParser Stage (Event)"],
+  init = function(trigger)
+    Private.ExecEnv.TimelineParser:RegisterStage()
+    return ""
+  end,
+  args = {
+    {
+      name = "stage",
+      -- Keep the original stage when the event is delayed.
+      init = "arg",
+      display = L["Stage"],
+      type = "number",
+      conditionType = "number",
+      store = true,
+    },
+    {
+      name = "note",
+      type = "description",
+      display = "",
+      text = L["This trigger requires ExRT_Reminder of version 71 or higher to function."]
+    },
+  },
+  statesParameter = "one",
+  progressType = "timed",
+  delayEvents = true,
+  timedrequired = true
+}
+Private.category_event_prototype.addons["TimelineParser Stage (Event)"] = L["TimelineParser Stage (Event)"]
 
 Private.event_prototypes["TimelineParser Timer"] = {
   type = "addons",
@@ -472,3 +516,96 @@ Private.event_prototypes["TimelineParser Timer"] = {
   automaticrequired = true,
 }
 Private.category_event_prototype.addons["TimelineParser Timer"] = L["TimelineParser Timer"]
+
+Private.event_prototypes["TimelineParser Timer Finished"] = {
+  type = "addons",
+  events = {},
+  internal_events = {
+    "TimelineParser_EventFinished"
+  },
+  name = M33kAuras.newFeatureString .. L["TimelineParser Timer Finished"],
+  init = function(trigger)
+    Private.ExecEnv.TimelineParser:RegisterTimerFinished()
+    return ("local use_cloneId = %s\n"):format(trigger.use_cloneId and "true" or "false")
+  end,
+  statesParameter = "all",
+  args = {
+    {
+      name = "eventID",
+      init = "arg",
+      hidden = true,
+      test = "true",
+      store = true,
+    },
+    {
+      name = "spellId",
+      init = "arg",
+      display = L["ID"],
+      desc = L["The 'ID' value can be found in the TimelineParser source code"],
+      type = "spell",
+      conditionType = "string",
+      store = true,
+      noValidation = true,
+      showExactOption = false,
+      negativeIsEJ = true
+    },
+    {
+      name = "count",
+      init = "arg",
+      display = L["Count"],
+      desc = L["Occurrence of the event reported by TimelineParser\nCan be a range of values\nCan have multiple values separated by a comma or a space\n\nExamples:\n2nd 5th and 6th events: 2, 5, 6\n2nd to 6th: 2-6\nevery 2 events: /2\nevery 3 events starting from 2nd: 2/3\nevery 3 events starting from 2nd and ending at 11th: 2-11/3"],
+      type = "string",
+      conditionType = "string",
+      store = true,
+      operator_types = "none",
+      preamble = "local counter = Private.ExecEnv.CreateTriggerCounter(%q)",
+      test = "counter:SetCount(tonumber(count) or 0) == nil and counter:Match()",
+      conditionPreamble = function(input)
+        return Private.ExecEnv.CreateTriggerCounter(input)
+      end,
+      conditionTest = function(state, needle, op, preamble)
+        preamble:SetCount(tonumber(state.count) or 0)
+        return preamble:Match()
+      end,
+    },
+    {
+      name = "message",
+      init = "spellId and C_Spell.GetSpellName(spellId) or ''",
+      display = L["Message"],
+      desc = L["Spell name of the finished TimelineParser timer."],
+      type = "longstring",
+      conditionType = "string",
+      store = true,
+    },
+    {
+      name = "name",
+      init = "message",
+      hidden = true,
+      test = "true",
+      store = true,
+    },
+    {
+      name = "icon",
+      init = "spellId and C_Spell.GetSpellTexture(spellId)",
+      hidden = true,
+      test = "true",
+      store = true,
+    },
+    {
+      name = "cloneId",
+      display = L["Clone per Event"],
+      type = "toggle",
+      test = "true",
+      init = "use_cloneId and M33kAuras.GetUniqueCloneId() or ''"
+    },
+    {
+      name = "note",
+      type = "description",
+      display = "",
+      text = L["This trigger requires ExRT_Reminder of version 73.2 or higher to function."]
+    },
+  },
+  timedrequired = true,
+  progressType = "timed"
+}
+Private.category_event_prototype.addons["TimelineParser Timer Finished"] = L["TimelineParser Timer Finished"]
